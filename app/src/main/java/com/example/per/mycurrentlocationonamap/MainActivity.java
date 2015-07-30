@@ -9,19 +9,28 @@ package com.example.per.mycurrentlocationonamap;
         import android.view.Menu;
         import android.view.MenuItem;
         import android.widget.Toast;
+
+        import com.example.app.R;
         import com.google.android.gms.maps.CameraUpdateFactory;
         import com.google.android.gms.maps.GoogleMap;
         import com.google.android.gms.maps.MapFragment;
         import com.google.android.gms.maps.model.LatLng;
         import com.google.android.gms.maps.model.MarkerOptions;
 
+
+
 public class MainActivity extends ActionBarActivity implements LocationListener {
+
+    GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         LocationManager locationManager;
+
+        mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+                .getMap();
 
 // Get the LocationManager object from the System Service LOCATION_SERVICE
         locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
